@@ -1,0 +1,20 @@
+{
+  "name": "solarmosaic-styleguide",
+  "version": "0.1.0",
+  "dependencies": {
+    "bootstrap-sass-official": "^3.2.0",
+    "bourbon": "^4.0.1",
+    "jquery-form": "^3.46.0",
+    "jquery.maskedinput": "^1.4.0",
+    "jquery-placeholder": "^2.0.8",
+    "jquery-prevent-double-submit": "~1.0",
+    "jquery-show-first": "~1.0",
+    "jquery-smartresize": "git://github.com/louisremi/jquery-smartresize.git#f1798f24c63b3857151116bf8933e7700321e2e5",
+    "jquery-ui": "~1.10.4",
+    "jquery.validation": "^1.12.0",
+    "jquery-waypoints": "^2.0.4",
+    "moment": "^2.7.0",
+    "pikaday": "^1.2.0",
+    "zeroclipboard": "^2.0.0"
+  }
+}

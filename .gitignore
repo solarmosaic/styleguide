@@ -1,6 +1,10 @@
 # Directories
 .idea
+.sass-cache
+bower_components
 node_modules
+public
+source/styles/vendor
 
 # Files
 *.log
