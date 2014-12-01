@@ -1,0 +1,22 @@
+{
+  "name": "solarmosaic-styleguide",
+  "version": "0.1.0",
+  "description": "Solar Mosaic Style Guide",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solarmosaic/styleguide"
+  },
+  "author": {
+    "name": "Solar Mosaic, Inc.",
+    "email": "support@solarmosaic.com",
+    "url": "http://solarmosaic.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/solarmosaic/styleguide/issues"
+  },
+  "homepage": "https://github.com/solarmosaic/styleguide"
+}

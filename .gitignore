@@ -1,0 +1,8 @@
+# Directories
+.idea
+node_modules
+
+# Files
+*.log
+*.iml
+*.sublime*
