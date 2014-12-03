@@ -1,0 +1,10 @@
+{
+  "examples": {
+    "default": {
+      "contents": "Default Button",
+      "modifiers": [
+        "default"
+      ]
+    }
+  }
+}

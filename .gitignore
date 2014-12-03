@@ -4,9 +4,12 @@
 bower_components
 node_modules
 public
-source/styles/vendor
 
 # Files
 *.log
 *.iml
 *.sublime*
+
+# Vendor
+source/assets/scripts/vendor
+source/assets/styles/vendor

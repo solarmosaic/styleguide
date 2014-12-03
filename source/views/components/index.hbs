@@ -1,0 +1,16 @@
+---
+title: Components
+---
+
+{{#extend "layout/styleguide"}}
+  {{#content "main"}}
+    <div class="components">
+      {{!-- Render the "body" chunk of all files in this section --}}
+      {{#each section.files}}
+        {{#unless data.isIndex}}
+          {{{file "main"}}}
+        {{/unless}}
+      {{/each}}
+    </div>
+  {{/content}}
+{{/extend}}

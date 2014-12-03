@@ -12,7 +12,7 @@ var scripts = {
   files: "**/*.js",
   manifest: "scripts-manifest.json",
   sourceMapFiles: "**/*.map",
-  vendor: "/scripts/vendor"
+  vendor: "/assets/scripts/vendor"
 };
 
 // Mixin mode-specific options

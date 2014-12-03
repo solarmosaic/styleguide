@@ -12,6 +12,7 @@ gulp.task("build", function(cb) {
     "build-styles",
     "build-manifest",
     "build-config",
-    "build-html"
+    "build-html",
+    "build-styleguide"
   ], cb);
 });

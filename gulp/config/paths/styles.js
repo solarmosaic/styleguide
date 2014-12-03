@@ -9,7 +9,7 @@ var env = require("../../utils/environment");
 var styles = {
   files: "**/*.+(s|)css",
   manifest: "styles-manifest.json",
-  vendor: "/styles/vendor"
+  vendor: "/assets/styles/vendor"
 };
 
 // Mixin mode-specific options
