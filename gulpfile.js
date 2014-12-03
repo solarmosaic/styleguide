@@ -19,6 +19,7 @@ var layouts = require("handlebars-layouts");
 var path = require("path");
 
 var data = require("gulp-data");
+var deploy = require("gulp-gh-pages");
 var filter = require("gulp-filter");
 var handlebars = require("gulp-hbs");
 var htmlPrettify = require("gulp-html-prettify");
@@ -84,4 +85,10 @@ gulp.task("build-styleguide", ["html-clean", "handlebars-helpers", "handlebars-p
     .pipe(htmlPrettify())
     // store in public folder
     .pipe(gulp.dest("public"));
+});
+
+// deploy the public folder to gh-pages
+gulp.task("deploy", ["build"], function() {
+  return gulp.src("public/**/*")
+    .pipe(deploy());
 });
