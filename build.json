@@ -1,0 +1,12 @@
+{
+  "asset": {
+    "manifest": {}
+  },
+  "paths": {
+    "cdn": {},
+    "publicDir": "/public"
+  },
+  "token": {
+    "cdn": "__CDN_URL__"
+  }
+}
