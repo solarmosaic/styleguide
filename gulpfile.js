@@ -58,7 +58,7 @@ function fromJson(file) {
   return _.extend(file.data || {}, optional(dataFilePath));
 }
 
-gulp.task("build-styleguide", ["html-clean"], function() {
+gulp.task("build-styleguide", ["build"], function() {
   return gulp.src("source/views/**/*.hbs")
     // extract data from .json files
     .pipe(data(fromJson))
