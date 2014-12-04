@@ -13,7 +13,9 @@
     <link href="/styleguide/assets/styles/styleguide.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Solar Mosaic Style Guide</h1>
+    {{#with file.nav.root}}
+      <h1><a href="{{href}}" title="{{title}}">Solar Mosaic Style Guide</a></h1>
+    {{/with}}
     <nav class="global">
       {{> [partials/navigation] file.nav.root}}
     </nav>
