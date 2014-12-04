@@ -1,6 +1,6 @@
 {
   "name": "solarmosaic-styleguide",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Solar Mosaic Style Guide",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
