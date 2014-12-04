@@ -19,6 +19,7 @@ var layouts = require("handlebars-layouts");
 var optional = require("optional");
 var path = require("path");
 
+var browserSync = require("browser-sync");
 var data = require("gulp-data");
 var deploy = require("gulp-gh-pages");
 var filter = require("gulp-filter");
@@ -26,7 +27,6 @@ var hb = require("./gulp/utils/hb"); // SEE TODO IN FILE
 var htmlPrettify = require("gulp-html-prettify");
 var nav = require("gulp-nav");
 var rename = require("gulp-rename");
-var ssg = require("gulp-ssg");
 
 // Generate URL friendly links to pages
 function permalink(file) {
@@ -78,6 +78,28 @@ gulp.task("build-styleguide", ["html-clean"], function() {
     // store in public folder
     .pipe(gulp.dest("public"));
 });
+
+// Start a server for the styleguide and allow automatic page reload on change
+gulp.task("styleguide-browser-sync", function() {
+	browserSync({
+		server: {
+			baseDir: "public"
+		},
+		notify: false
+	});
+});
+
+gulp.task("styleguide-watch", ["styleguide-browser-sync", "watch"], function() {
+  gulp.watch([
+    "source/**/*",
+    "!source/assets/**/*"
+  ], [
+    "build-styleguide",
+    browserSync.reload
+  ]);
+});
+
+gulp.task("styleguide", ["styleguide-watch"]);
 
 // deploy the public folder to gh-pages
 gulp.task("deploy", ["build"], function() {

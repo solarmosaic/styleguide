@@ -2,6 +2,7 @@
  * tasks/watch.js
  */
 
+var browserSync = require("browser-sync");
 var gulp = require("gulp");
 
 gulp.task("watch", ["build"], function() {
@@ -11,16 +12,19 @@ gulp.task("watch", ["build"], function() {
 
   // Tasks to run when images change
   gulp.watch(paths.images.sourceFiles, [
-    "images-copy"
+    "images-copy",
+    browserSync.reload
   ]);
 
   // Tasks to run when scripts change
   gulp.watch(paths.scripts.sourceFiles, [
-    "scripts-compile"
+    "scripts-compile",
+    browserSync.reload
   ]);
 
   // Tasks to run when styles change
   gulp.watch(paths.styles.sourceFiles, [
-    "styles-compile"
+    "styles-compile",
+    browserSync.reload
   ]);
 });
