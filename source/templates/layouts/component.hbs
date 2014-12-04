@@ -1,0 +1,22 @@
+{{!--
+  layouts/component
+
+  @extends layouts/default
+  @param {String} title The page and component title
+  @block main The main content block
+--}}
+{{#extend "layouts/default"}}
+  {{#content "layouts/default/main"}}
+    <h2>{{file.data.title}}</h2>
+    {{#block "layouts/component/content"}}
+      {{!-- Print out all the examples for this component --}}
+      {{#each file.data.examples}}
+        {{#embed "partials/component"}}
+          {{#content "partials/component/content"}}
+            {{partial @root.file.data.component ../../this}}
+          {{/content}}
+        {{/embed}}
+      {{/each}}
+    {{/block}}
+  {{/content}}
+{{/extend}}

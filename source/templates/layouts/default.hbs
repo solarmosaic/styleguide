@@ -1,0 +1,23 @@
+{{!--
+  layouts/default
+
+  @param {String} [file.data.title] Page sub-title
+  @block main The main content block
+--}}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  	<title>Solar Mosaic Style Guide{{#if file.data.title}}: {{file.data.title}}{{/if}}</title>
+  	<link href="/styleguide/assets/styles/styleguide.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Solar Mosaic Style Guide</h1>
+    <nav class="global">
+      {{> [partials/navigation] file.nav}}
+    </nav>
+    <main class="main" role="main">
+      {{{block "layouts/default/main"}}}
+    </main>
+  </body>
+</html>

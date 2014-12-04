@@ -1,0 +1,10 @@
+{{!--
+  Alert
+
+  @param {Array} [modifiers] Style modifiers, like "error" or "dismissable"
+  @param {String|Html} content The alert body content
+--}}
+<div class="alert {{#each modifiers}}alert-{{this}}{{/each}}" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <p>{{{this.content}}}</p>
+</div>

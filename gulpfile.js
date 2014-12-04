@@ -13,26 +13,38 @@ require("./gulp");
 ////////////////////
 
 var _ = require("lodash");
-var fm = require("front-matter");
+var matter = require("gray-matter");
 var gulp = require("gulp");
 var layouts = require("handlebars-layouts");
+var optional = require("optional");
 var path = require("path");
 
 var data = require("gulp-data");
 var deploy = require("gulp-gh-pages");
 var filter = require("gulp-filter");
-var handlebars = require("gulp-hbs");
+var hb = require("./gulp/utils/hb"); // SEE TODO IN FILE
 var htmlPrettify = require("gulp-html-prettify");
 var nav = require("gulp-nav");
 var rename = require("gulp-rename");
 var ssg = require("gulp-ssg");
 
+// Generate URL friendly links to pages
+function permalink(file) {
+  file.extname = ".html";
+  if (file.basename !== "index") {
+    file.dirname = path.join(file.dirname, file.basename);
+    file.basename = "index";
+  }
+
+  return file;
+}
+
 // Extract YAML front matter from files
 function frontMatter(file) {
-  var content = fm(file.contents.toString());
-  file.contents = new Buffer(content.body);
+  var extracted = matter(file.contents.toString());
+  file.contents = new Buffer(extracted.content);
 
-  return _.extend(file.data || {}, content.attributes);
+  return _.extend(file.data || {}, extracted.data);
 }
 
 /**
@@ -43,44 +55,24 @@ function frontMatter(file) {
 function fromJson(file) {
   var dataFileName = path.basename(file.path, path.extname(file.path)) + ".json";
   var dataFilePath = path.join(path.dirname(file.path), dataFileName);
-
-  var data;
-  try {
-    data = require(dataFilePath);
-  } catch(err) {
-    // Complain about errors that are unrelated to missing JSON data
-    if (err.code !== "MODULE_NOT_FOUND") {
-      throw err;
-    }
-
-    data = {};
-  }
-
-  return _.extend(file.data || {}, data);
+  return _.extend(file.data || {}, optional(dataFilePath));
 }
 
-gulp.task("handlebars-helpers", function() {
-  return gulp.src("source/helpers/**/*.js")
-    .pipe(handlebars.registerHelpers({
-      helpers: layouts
-    }));
-});
-
-gulp.task("handlebars-partials", function() {
-  return gulp.src("source/partials/**/*.hbs")
-    .pipe(handlebars.registerPartials());
-});
-
-gulp.task("build-styleguide", ["html-clean", "handlebars-helpers", "handlebars-partials"], function() {
+gulp.task("build-styleguide", ["html-clean"], function() {
   return gulp.src("source/views/**/*.hbs")
     // extract data from .json files
     .pipe(data(fromJson))
     // extract data from YAML front matter
     .pipe(data(frontMatter))
-    // relocate templates to url friendly locations and generate site structure data
-    .pipe(ssg())
+    // relocate templates to url friendly locations
+    .pipe(rename(permalink))
+    // generate site navigation data
+    .pipe(nav())
     // compile the templates
-    .pipe(handlebars.compile())
+    .pipe(hb({
+      helpers: "source/helpers/**/*.js",
+      partials: "source/templates/**/*.hbs"
+    }))
     // make the html output prettier
     .pipe(htmlPrettify())
     // store in public folder

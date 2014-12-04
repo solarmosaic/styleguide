@@ -2,15 +2,10 @@
 title: Components
 ---
 
-{{#extend "layout/styleguide"}}
-  {{#content "main"}}
+{{#extend "layouts/default"}}
+  {{#content "layouts/default/main"}}
     <div class="components">
-      {{!-- Render the "body" chunk of all files in this section --}}
-      {{#each section.files}}
-        {{#unless data.isIndex}}
-          {{{file "main"}}}
-        {{/unless}}
-      {{/each}}
+      TODO Render all of the components on this page
     </div>
   {{/content}}
 {{/extend}}

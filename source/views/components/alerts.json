@@ -1,9 +1,9 @@
 {
   "examples": {
     "default": {
-      "content": "Default Button",
+      "content": "Oh noes!",
       "modifiers": [
-        "default"
+        "error"
       ]
     }
   }
