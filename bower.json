@@ -1,6 +1,6 @@
 {
   "name": "solarmosaic-styleguide",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "bootstrap-sass-official": "^3.2.0",
     "bourbon": "^4.0.1",
