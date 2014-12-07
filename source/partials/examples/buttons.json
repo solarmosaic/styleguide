@@ -6,5 +6,6 @@
         "default"
       ]
     }
-  }
+  },
+  "partial": "components/button"
 }

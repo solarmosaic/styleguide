@@ -1,11 +1,17 @@
 ---
 title: Components
+# TODO build this dynamically and pass in
+components:
+  - examples/alerts
+  - examples/buttons
 ---
 
 {{#extend "layouts/default"}}
-  {{#content "layouts/default/main"}}
+  {{#content "layouts/default/content"}}
     <div class="components">
-      TODO Render all of the components on this page
+      {{#each file.data.components}}
+        {{{partial this}}}
+      {{/each}}
     </div>
   {{/content}}
 {{/extend}}

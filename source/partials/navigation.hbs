@@ -3,7 +3,7 @@
     <li class="item-{{lower title}}{{#if active}} active{{/if}}">
       <a href="{{href}}">{{title}}</a>
       {{#if children}}
-        {{> [partials/navigation] this}}
+        {{> navigation this}}
       {{/if}}
     </li>
   {{/each}}

@@ -1,0 +1,16 @@
+{{!--
+  layouts/component
+  The main layout for components, an extension of the default layout.
+
+  @extends layouts/default
+
+  @param {String} title The page and component title
+
+  @block layouts/component/content The main content block
+--}}
+{{#extend "layouts/default"}}
+  {{#content "layouts/default/content"}}
+    <h2>{{file.data.title}}</h2>
+    {{{block "layouts/component/content"}}}
+  {{/content}}
+{{/extend}}

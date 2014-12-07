@@ -6,5 +6,6 @@
         "error"
       ]
     }
-  }
+  },
+  "partial": "components/alert"
 }

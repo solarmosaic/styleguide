@@ -1,15 +1,17 @@
 {{!--
   layouts/default
 
+  @param {String} file.nav The navigation object provided by gulp-nav
   @param {String} [file.data.title] Page sub-title
-  @block main The main content block
+
+  @block content The main content block
 --}}
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
-  	<title>Solar Mosaic Style Guide{{#if file.data.title}}: {{file.data.title}}{{/if}}</title>
-  	{{!-- TODO better asset url handling for local vs remote --}}
+    <title>Solar Mosaic Style Guide{{#if file.data.title}}: {{file.data.title}}{{/if}}</title>
+    {{!-- TODO better asset url handling for local vs remote --}}
     <link href="/styleguide/assets/styles/styleguide.css" rel="stylesheet">
   </head>
   <body>
@@ -17,10 +19,10 @@
       <h1><a href="{{href}}" title="{{title}}">Solar Mosaic Style Guide</a></h1>
     {{/with}}
     <nav class="global">
-      {{> [partials/navigation] file.nav.root}}
+      {{> navigation file.nav.root}}
     </nav>
     <main class="main" role="main">
-      {{{block "layouts/default/main"}}}
+      {{{block "layouts/default/content"}}}
     </main>
   </body>
 </html>

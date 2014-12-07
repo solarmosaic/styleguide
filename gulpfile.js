@@ -29,7 +29,7 @@ var nav = require("gulp-nav");
 var rename = require("gulp-rename");
 
 // Generate URL friendly links to pages
-function permalink(file) {
+function prettyUrl(file) {
   file.extname = ".html";
   if (file.basename !== "index") {
     file.dirname = path.join(file.dirname, file.basename);
@@ -65,13 +65,13 @@ gulp.task("build-styleguide", ["html-clean"], function() {
     // extract data from YAML front matter
     .pipe(data(frontMatter))
     // relocate templates to url friendly locations
-    .pipe(rename(permalink))
+    .pipe(rename(prettyUrl))
     // generate site navigation data
     .pipe(nav())
     // compile the templates
     .pipe(hb({
       helpers: "source/helpers/**/*.js",
-      partials: "source/templates/**/*.hbs"
+      partials: "source/partials/**/*.hbs"
     }))
     // make the html output prettier
     .pipe(htmlPrettify())

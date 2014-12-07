@@ -1,0 +1,18 @@
+{{!--
+  partials/examples
+  Renders out component examples
+
+  @param {Object} examples An object containing the data for each example
+  @param {String} partial The name of the partial to render for the example
+--}}
+{{#defining partial=partial}}
+  {{#each examples}}
+    <div class="example">
+      {{#embed "component"}}
+        {{#content "component/content"}}
+          {{partial @partial ../../this}}
+        {{/content}}
+      {{/embed}}
+    </div>
+  {{/each}}
+{{/defining}}
