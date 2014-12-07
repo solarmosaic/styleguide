@@ -22,50 +22,22 @@ var path = require("path");
 
 var browserSync = require("browser-sync");
 var data = require("gulp-data");
+var dataJson = require("gulp-data-json");
+var dataMatter = require("gulp-data-matter");
 var filter = require("gulp-filter");
 var hb = require("./gulp/utils/hb"); // SEE TODO IN FILE
 var htmltidy = require("gulp-htmltidy");
 var nav = require("gulp-nav");
-var rename = require("gulp-rename");
-
-// Generate URL friendly links to pages
-function prettyUrl(file) {
-  file.extname = ".html";
-  if (file.basename !== "index") {
-    file.dirname = path.join(file.dirname, file.basename);
-    file.basename = "index";
-  }
-
-  return file;
-}
-
-// Extract YAML front matter from files
-function frontMatter(file) {
-  var extracted = matter(file.contents.toString());
-  file.contents = new Buffer(extracted.content);
-
-  return _.extend(file.data || {}, extracted.data);
-}
-
-/**
- * Load data for a file from a neighboring JSON file
- *
- * @example path/to/foo.hbs -> path/to/foo.json
- */
-function fromJson(file) {
-  var dataFileName = path.basename(file.path, path.extname(file.path)) + ".json";
-  var dataFilePath = path.join(path.dirname(file.path), dataFileName);
-  return _.extend(file.data || {}, optional(dataFilePath));
-}
+var prettyUrl = require("gulp-pretty-url");
 
 gulp.task("build-styleguide", ["html-clean"], function() {
   return gulp.src("source/views/**/*.hbs")
     // extract data from .json files
-    .pipe(data(fromJson))
+    .pipe(dataJson())
     // extract data from front matter
-    .pipe(data(frontMatter))
+    .pipe(dataMatter())
     // relocate templates to url friendly locations
-    .pipe(rename(prettyUrl))
+    .pipe(prettyUrl())
     // generate site navigation data
     .pipe(nav())
     // compile the templates
