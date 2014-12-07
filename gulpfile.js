@@ -14,6 +14,7 @@ require("./gulp");
 
 var _ = require("lodash");
 var matter = require("gray-matter");
+var ghpages = require("gh-pages");
 var gulp = require("gulp");
 var layouts = require("handlebars-layouts");
 var optional = require("optional");
@@ -21,10 +22,9 @@ var path = require("path");
 
 var browserSync = require("browser-sync");
 var data = require("gulp-data");
-var deploy = require("gulp-gh-pages");
 var filter = require("gulp-filter");
 var hb = require("./gulp/utils/hb"); // SEE TODO IN FILE
-var htmlPrettify = require("gulp-html-prettify");
+var htmltidy = require("gulp-htmltidy");
 var nav = require("gulp-nav");
 var rename = require("gulp-rename");
 
@@ -73,8 +73,11 @@ gulp.task("build-styleguide", ["html-clean"], function() {
       helpers: "source/helpers/**/*.js",
       partials: "source/partials/**/*.hbs"
     }))
-    // make the html output prettier
-    .pipe(htmlPrettify())
+    // so pretty
+    .pipe(htmltidy({
+      indent: true,
+      wrap: 120
+    }))
     // store in public folder
     .pipe(gulp.dest("public"));
 });
@@ -102,7 +105,6 @@ gulp.task("styleguide-watch", ["styleguide-browser-sync", "watch"], function() {
 gulp.task("styleguide", ["styleguide-watch"]);
 
 // deploy the public folder to gh-pages
-gulp.task("deploy", ["build"], function() {
-  return gulp.src("public/**/*")
-    .pipe(deploy());
+gulp.task("deploy", ["build"], function(cb) {
+  ghpages.publish(path.join(process.cwd(), "public"), cb);
 });
