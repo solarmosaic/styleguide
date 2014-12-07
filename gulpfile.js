@@ -62,7 +62,7 @@ gulp.task("build-styleguide", ["html-clean"], function() {
   return gulp.src("source/views/**/*.hbs")
     // extract data from .json files
     .pipe(data(fromJson))
-    // extract data from YAML front matter
+    // extract data from front matter
     .pipe(data(frontMatter))
     // relocate templates to url friendly locations
     .pipe(rename(prettyUrl))

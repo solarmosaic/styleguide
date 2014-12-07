@@ -1,7 +1,7 @@
 {
-  "name": "solarmosaic-styleguide",
+  "name": "mosaic-styleguide",
   "version": "0.1.1",
-  "description": "Solar Mosaic Style Guide",
+  "description": "Mosaic's living style guide",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -56,7 +56,7 @@
     "mout": "^0.11.0",
     "optional": "^0.1.0-2",
     "run-sequence": "^1.0.0",
-    "solarmosaic-gulp-tasks": "^0.1.2",
+    "mosaic-gulp-tasks": "^0.2.2",
     "stylish": "^0.4.0",
     "through2": "^0.5.1",
     "webpack": "^1.4.7"
