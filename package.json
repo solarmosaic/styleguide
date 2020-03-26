@@ -64,6 +64,6 @@
     "run-sequence": "^1.0.0",
     "stylish": "^0.4.0",
     "through2": "^0.5.1",
-    "webpack": "^1.4.7"
+    "webpack": "^4.42.1"
   }
 }
