@@ -46,7 +46,7 @@
     "gulp-sourcemaps": "^1.1.0",
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.8",
-    "handlebars": "^2.0.0",
+    "handlebars": "^4.7.3",
     "handlebars-helper": "0.0.12",
     "handlebars-layouts": "^1.0.0",
     "jshint": "^2.5.5",
