@@ -28,7 +28,7 @@
     "glob": "^4.3.1",
     "glob2base": "0.0.12",
     "gray-matter": "^0.6.1",
-    "gulp": "^3.8.8",
+    "gulp": "^4.0.2",
     "gulp-data": "^1.0.2",
     "gulp-data-json": "^0.1.0",
     "gulp-data-matter": "^0.1.1",
