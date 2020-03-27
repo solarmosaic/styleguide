@@ -48,7 +48,7 @@
     "gulp-util": "^3.0.8",
     "handlebars": "^4.7.3",
     "handlebars-helper": "0.0.12",
-    "handlebars-layouts": "^1.0.0",
+    "handlebars-layouts": "^3.1.4",
     "jshint": "^2.5.5",
     "jshint-stylish": "^0.4.0",
     "jsonfile": "^1.2.0",
