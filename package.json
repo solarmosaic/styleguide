@@ -34,7 +34,7 @@
     "gulp-data-matter": "^0.1.1",
     "gulp-filter": "^1.0.2",
     "gulp-fingerprint": "^0.3.2",
-    "gulp-hb": "^0.1.5",
+    "gulp-hb": "^8.0.0",
     "gulp-htmltidy": "0.0.1",
     "gulp-jshint": "^1.8.4",
     "gulp-minify-css": "^0.3.8",
