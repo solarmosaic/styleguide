@@ -41,7 +41,7 @@
     "gulp-nav": "^0.3.0",
     "gulp-pretty-url": "^0.1.1",
     "gulp-rename": "^1.2.0",
-    "gulp-rev": "^0.4.2",
+    "gulp-rev": "^9.0.0",
     "gulp-ruby-sass": "^0.7.1",
     "gulp-sourcemaps": "^1.1.0",
     "gulp-uglify": "^1.0.1",
