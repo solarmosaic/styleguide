@@ -32,7 +32,7 @@
     "gulp-data": "^1.0.2",
     "gulp-data-json": "^0.1.0",
     "gulp-data-matter": "^0.1.1",
-    "gulp-filter": "^1.0.2",
+    "gulp-filter": "^7.0.0",
     "gulp-fingerprint": "^0.3.2",
     "gulp-hb": "^0.1.5",
     "gulp-htmltidy": "0.0.1",
